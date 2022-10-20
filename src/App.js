@@ -6,6 +6,7 @@ import {
   RouterProvider,
   Route
 } from "react-router-dom";
+import Home from './Home/Home';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
     <div className="App">
       <RouterProvider router={router}></RouterProvider> 
       <Navbar></Navbar>
+      <Home></Home>
     </div>
   );
 }

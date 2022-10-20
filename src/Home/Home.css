@@ -1,0 +1,27 @@
+.Home{
+    position: relative;
+    height: 700px;
+}
+.Home img{
+    position: absolute;
+    height: 700px;
+    width: 100%;
+    top: 0;
+    opacity: 0.6;
+    z-index: -1;
+}
+
+.HomeContext{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.HomeContext h2{
+    font-family: 'Noto Serif', serif;
+}
+
+.HomeContext h5{
+    font-family: 'PT Sans Narrow', sans-serif;
+}
