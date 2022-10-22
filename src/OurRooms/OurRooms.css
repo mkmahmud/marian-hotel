@@ -1,0 +1,11 @@
+.OurRoom{
+    margin-top: 150px;
+}
+.rooms{
+    margin-top: 50px;
+    grid-gap:4rem 0rem;
+}
+
+.card{
+    background-color: #16003B;
+}

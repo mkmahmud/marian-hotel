@@ -13,21 +13,21 @@ const Home = () => {
             <div className="bookNow flex justify-center items-end text-white ">
                 <div className="form-control grow w-52">
                     <label className="label">
-                        <span className="label-text">Check To Date</span>
+                        <span className="label-text text-white">Check To Date</span>
                     </label>
-                    <input type="date" placeholder="Type Date" className="input input-bordered w-full max-w-xs" />
+                    <input type="date" placeholder="Type Date" className="input bg-[#413F42] input-bordered w-full max-w-xs" />
                 </div>
                 <div className="form-control grow w-52">
                     <label className="label">
-                        <span className="label-text">Check Out Date</span>
+                        <span className="label-text text-white">Check Out Date</span>
                     </label>
-                    <input type="date" placeholder="Type Date" className="input input-bordered w-full max-w-xs" />
+                    <input type="date" placeholder="Type Date" className="input bg-[#413F42] input-bordered w-full max-w-xs" />
                 </div>
                 <div className="form-control grow w-52">
                     <label className="label">
-                        <span className="label-text">Adults</span>
+                        <span className="label-text text-white">Adults</span>
                     </label>
-                    <select name="" id="" className="input input-bordered w-full max-w-xs">
+                    <select name="" id="" className="input input-bordered bg-[#413F42] w-full max-w-xs">
                         <option value="">01</option>
                         <option value="">02</option>
                         <option value="">03</option>
@@ -36,18 +36,18 @@ const Home = () => {
                 </div>
                 <div className="form-control grow w-52">
                     <label className="label">
-                        <span className="label-text">Children</span>
+                        <span className="label-text text-white">Children</span>
                     </label>
-                    <select name="" id="" className="input input-bordered w-full max-w-xs">
+                    <select name="" id="" className="input input-bordered bg-[#413F42] w-full max-w-xs">
                         <option value="">01</option>
                         <option value="">02</option>
                     </select>
                 </div>
                 <div className="form-control grow w-52">
                     <label className="label">
-                        <span className="label-text">Room</span>
+                        <span className="label-text text-white">Room</span>
                     </label>
-                    <select name="" id="" className="input input-bordered w-full max-w-xs">
+                    <select name="" id="" className="input input-bordered bg-[#413F42] w-full max-w-xs">
                         <option value="">01</option>
                         <option value="">02</option>
                         <option value="">03</option>
