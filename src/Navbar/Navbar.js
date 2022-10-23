@@ -1,12 +1,27 @@
-import React, { useState } from 'react';
+import React, { createRef, useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo.png'
-import './Navbar.css'
+import logo from '../assets/logo.png';
+import './Navbar.css';
+import { AuthContext } from '../UserContext/UserContext';
 
 
 const Navbar = () => {
-
+    
     const [user, setUser] = useState(false)
+
+    const {CurrUser} = useContext(AuthContext);
+
+   
+    useEffect( ()=>{
+        if(CurrUser){
+            setUser(true)
+        }else{
+            setUser(false)
+        }
+    },[])
+
+    // console.log(CurrUser.name)
+    // console.log(user)
 
     return (
         <div className="navbar bg-[#16003B] text-white">
@@ -52,7 +67,9 @@ const Navbar = () => {
                             <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-[#16003B] rounded-box w-52">
                                 <li>
                                     <a className="justify-between">
-                                        Mahmudul
+                                        {
+                                            CurrUser.name
+                                        }
                                     </a>
                                 </li>
                                 <li><a>Settings</a></li>

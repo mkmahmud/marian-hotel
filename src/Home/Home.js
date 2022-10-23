@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import HomeImg from '../assets/Home/wp8103002.jpg';
-import './Home.css'
+import './Home.css';
 
 const Home = () => {
     return (
