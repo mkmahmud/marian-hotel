@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../UserContext/UserContext';
 
 const SignUp = () => {
+
+    const {CurrUser} = useContext(AuthContext);
+   
     const handelSubmit = (e) => {
+
         e.preventDefault();
+        const email = e.target.email.value;
+        const pass = e.target.password.value;
+
+        CurrUser.signIn(email,pass)
+        .then((userCredintial) => {
+            const user = userCredintial
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+        
     }
     return (
         <div className="artboard phone-5 mx-auto bg-[#16003B] rounded text-white my-5">
@@ -15,7 +31,7 @@ const SignUp = () => {
                     </label>
                     <label className="input-group">
                         <span>Name</span>
-                        <input type="text" placeholder="Mahmudul Hasan " className="input input-bordered w-full" />
+                        <input type="text" placeholder="Mahmudul Hasan " name='name' className="input input-bordered w-full" />
                     </label>
                 </div>
                 <div className="form-control">
@@ -24,7 +40,7 @@ const SignUp = () => {
                     </label>
                     <label className="input-group">
                         <span>Email</span>
-                        <input type="text" placeholder="info@site.com" className="input input-bordered w-full" />
+                        <input type="text" placeholder="info@site.com" name='email' className="input input-bordered w-full" />
                     </label>
                 </div>
                 <div className="form-control">
@@ -33,7 +49,7 @@ const SignUp = () => {
                     </label>
                     <label className="input-group">
                         <span>Password</span>
-                        <input type="password" placeholder="Password" className="input input-bordered w-full" />
+                        <input type="password" placeholder="Password" name='password' className="input input-bordered w-full" />
                     </label>
                 </div>
                 <div className="form-control">
@@ -42,7 +58,7 @@ const SignUp = () => {
                     </label>
                     <label className="input-group">
                         <span>Phone</span>
-                        <input type="number" placeholder="-128390091" className="input input-bordered w-full" />
+                        <input type="number" placeholder="-128390091" name='phone' className="input input-bordered w-full" />
                     </label>
                 </div>
                 <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-success m-5">Sign In</button>

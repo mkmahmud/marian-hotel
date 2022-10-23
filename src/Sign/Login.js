@@ -1,14 +1,37 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../UserContext/UserContext';
+import { getAuth, signInWithEmailAndPassword  } from "firebase/auth";
+import app from '../Firebase/Firebase.config';
 
+const auth = getAuth(app)
 
 
 const Login = () => {
 
+    const {CurrUser} = useContext(AuthContext)
 
     const handelSubmit = (e) => {
+
         e.preventDefault();
+
+        const email = e.target.email.value;
+        const pass = e.target.password.value;
+            CurrUser.login(email, pass)
+            .then((user) => {
+                console.log(user)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+        // signInWithEmailAndPassword(auth, email,pass)
+        // .then((userCredintial) => {
+        //     const user = userCredintial;
+        //     console.log(user)
+        // })
+        // .catch((err)=>  {
+        //     console.log(err)
+        // })
     }
 
     return (
@@ -21,7 +44,7 @@ const Login = () => {
                     </label>
                     <label className="input-group">
                         <span>Email</span>
-                        <input type="text" placeholder="info@site.com" className="input input-bordered w-full" />
+                        <input type="text" name='email' placeholder="info@site.com" className="input input-bordered w-full" />
                     </label>
                 </div>
                 <div className="form-control">
@@ -30,7 +53,7 @@ const Login = () => {
                     </label>
                     <label className="input-group">
                         <span>Password</span>
-                        <input type="password" placeholder="90MKide3#@)" className="input input-bordered w-full" />
+                        <input type="password" name='password' placeholder="90MKide3#@)" className="input input-bordered w-full" />
                     </label>
                 </div>
                 <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-success m-5">Log In</button>
