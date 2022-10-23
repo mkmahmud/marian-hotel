@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png'
 import './Navbar.css'
 
 
 const Navbar = () => {
 
-    const [user, setUser] = useState(true)
+    const [user, setUser] = useState(false)
 
     return (
         <div className="navbar bg-[#16003B] text-white">
@@ -16,7 +17,7 @@ const Navbar = () => {
             <div className="flex-none gap-2">
                 <div className="form-control">
                     <ul className="menu menu-horizontal p-0">
-                        <li><a>Home</a></li>
+                        <li><Link to='/'>Home</Link></li>
                         <li tabIndex={0}>
                             <a>
                                 Pages
@@ -38,8 +39,8 @@ const Navbar = () => {
                     !user ?
 
                         <ul className="menu menu-horizontal p-0">
-                            <li><a><button className="btn btn-success">Log In</button></a></li>
-                            <li><a><button className="btn btn-warning">Sign Up</button></a></li>
+                            <li><Link to='/login'><button className="btn btn-success">Log In</button></Link></li>
+                            <li><Link to='/signUp'><button className="btn btn-warning">Sign Up</button></Link></li>
                         </ul>
                         :
                         <div className="dropdown dropdown-end">
