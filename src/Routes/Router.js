@@ -5,12 +5,14 @@ import {
   RouterProvider,
   Route
 } from "react-router-dom";
+import Blog from '../Blog/Blog';
 import Home from '../Home/Home';
 import Main from '../Layout/Main';
 import Navbar from '../Navbar/Navbar';
 import OurRooms from '../OurRooms/OurRooms';
 import Login from '../Sign/Login';
 import SignUp from '../Sign/SignUp';
+import PrivateRoute from './PrivateRoute.js/PrivateRoute';
 
 
 const Router = () => {
@@ -30,6 +32,10 @@ const Router = () => {
         {
           path: '/about',
           element: <div>About</div>
+        },
+        {
+          path:'/blog',
+          element:<PrivateRoute><Blog></Blog></PrivateRoute>
         },
         {
           path: '/login',

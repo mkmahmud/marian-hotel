@@ -1,14 +1,13 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../UserContext/UserContext';
-import { getAuth, signInWithEmailAndPassword  } from "firebase/auth";
-import app from '../Firebase/Firebase.config';
 
-const auth = getAuth(app)
 
 
 const Login = () => {
 
+
+    
     const {CurrUser} = useContext(AuthContext)
 
     const handelSubmit = (e) => {
@@ -24,14 +23,6 @@ const Login = () => {
             .catch((err) => {
                 console.log(err)
             })
-        // signInWithEmailAndPassword(auth, email,pass)
-        // .then((userCredintial) => {
-        //     const user = userCredintial;
-        //     console.log(user)
-        // })
-        // .catch((err)=>  {
-        //     console.log(err)
-        // })
     }
 
     return (

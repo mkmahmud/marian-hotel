@@ -9,17 +9,21 @@ const Navbar = () => {
     
     const [user, setUser] = useState(false)
 
-    const {CurrUser} = useContext(AuthContext);
+    const {CurrUser, loggedUser, logOut} = useContext(AuthContext);
+
+    
 
    
-    useEffect( ()=>{
-        if(CurrUser){
-            setUser(true)
-        }
-    },[])
 
-    const logOut = () => {
-        setUser(false)
+    const HandellogOut = () => {
+        logOut()
+        .then(() => {
+            console.log('Log Out')
+            setUser(false)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
     }
 
     // console.log(CurrUser.name)
@@ -47,13 +51,13 @@ const Navbar = () => {
                         </li>
                         <li><a>About</a></li>
                         <li><a>Service</a></li>
-                        <li><a>Blog</a></li>
+                        <li><Link to='/blog'>Blog</Link></li>
                         <li><a>Contact</a></li>
                         <li><a><button className="btn btn-info">Book Online</button></a></li>
                     </ul>
                 </div>
                 {
-                    !user ?
+                    !loggedUser.uid ?
 
                         <ul className="menu menu-horizontal p-0">
                             <li><Link to='/login'><button className="btn btn-success">Log In</button></Link></li>
@@ -70,12 +74,12 @@ const Navbar = () => {
                                 <li>
                                     <a className="justify-between">
                                         {
-                                            CurrUser.name
+                                            loggedUser.email
                                         }
                                     </a>
                                 </li>
                                 <li><a>Settings</a></li>
-                                <li><a onClick={logOut}>Logout</a></li>
+                                <li><a onClick={HandellogOut}>Logout</a></li>
                             </ul>
                         </div>
                 }
