@@ -8,7 +8,6 @@ import {
 import Blog from '../Blog/Blog';
 import Home from '../Home/Home';
 import Main from '../Layout/Main';
-import Navbar from '../Navbar/Navbar';
 import OurRooms from '../OurRooms/OurRooms';
 import Login from '../Sign/Login';
 import SignUp from '../Sign/SignUp';
@@ -27,15 +26,16 @@ const Router = () => {
           element: <>
             <Home></Home>
             <OurRooms></OurRooms>
+            <Blog></Blog>
           </>
-        },
-        {
-          path: '/about',
-          element: <div>About</div>
         },
         {
           path:'/blog',
           element:<PrivateRoute><Blog></Blog></PrivateRoute>
+        },
+        {
+          path: '/about',
+          element: <div>About</div>
         },
         {
           path: '/login',

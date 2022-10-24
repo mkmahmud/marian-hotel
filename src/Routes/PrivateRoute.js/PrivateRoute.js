@@ -2,17 +2,17 @@ import React, { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import { AuthContext } from '../../UserContext/UserContext';
 
-const PrivateRoute = ({Children}) => {
+const PrivateRoute = ({children}) => {
     
-    const {CurrUser} = useContext(AuthContext)
+    const {loggedUser} = useContext(AuthContext)
 
-    console.log(CurrUser)
+    console.log(loggedUser)
     
-    if(!CurrUser.name){
-        return <Navigate to='/login'></Navigate>
+    if(loggedUser && loggedUser.uid){
+        return children;
     }
 
-    return Children;
+    return <Navigate to='/login'></Navigate>
 };
 
 export default PrivateRoute;

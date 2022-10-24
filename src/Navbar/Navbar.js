@@ -74,7 +74,7 @@ const Navbar = () => {
                                 <li>
                                     <a className="justify-between">
                                         {
-                                            loggedUser.email
+                                            loggedUser.displayName
                                         }
                                     </a>
                                 </li>

@@ -1,27 +1,36 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../UserContext/UserContext';
+import toast, { Toaster } from 'react-hot-toast';
 
-
+const logerror = () => toast.error('Log In Failded. Please provide valid information ');
 
 const Login = () => {
 
 
-    
-    const {CurrUser} = useContext(AuthContext)
+    const navigate = useNavigate();
+
+    const { CurrUser, loggedUser } = useContext(AuthContext)
+
+
+
 
     const handelSubmit = (e) => {
 
         e.preventDefault();
-
+        const form = e.target;
         const email = e.target.email.value;
         const pass = e.target.password.value;
-            CurrUser.login(email, pass)
+        CurrUser.login(email, pass)
             .then((user) => {
-                console.log(user)
+                console.log(user);
+                form.reset();
+               
+                navigate('/')
             })
             .catch((err) => {
                 console.log(err)
+                logerror()
             })
     }
 
@@ -47,7 +56,9 @@ const Login = () => {
                         <input type="password" name='password' placeholder="90MKide3#@)" className="input input-bordered w-full" />
                     </label>
                 </div>
-                <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-success m-5">Log In</button>
+                <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-success m-5" >Log In</button>
+
+                <Toaster />
             </form>
 
             <h2 className='p-2 text-xl'>OR</h2>
@@ -69,6 +80,7 @@ const Login = () => {
                 </button>
             </div>
             <p>Didn't have account <Link className='font-bold' to='/signUp'>Sign Up</Link></p>
+
         </div>
     );
 };

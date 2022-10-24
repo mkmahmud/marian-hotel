@@ -1,23 +1,41 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../UserContext/UserContext';
+import { getAuth, updateProfile } from "firebase/auth";
+import app from '../Firebase/Firebase.config';
+import toast, { Toaster } from 'react-hot-toast';
+
+const logerror = () => toast.error('Email already in used ');
+
+const auth = getAuth(app)
 
 const SignUp = () => {
 
     const {CurrUser} = useContext(AuthContext);
    
+    const navigate = useNavigate()
+
     const handelSubmit = (e) => {
 
         e.preventDefault();
+        const form = e.target;
+        const name = e.target.name.value;
         const email = e.target.email.value;
+        const phone = e.target.phone.value;
         const pass = e.target.password.value;
 
         CurrUser.signIn(email,pass)
         .then((userCredintial) => {
-            const user = userCredintial
+            form.reset();
+            const user = userCredintial;
+            updateProfile(auth.currentUser, {
+                displayName: name
+            })
+            navigate('/')
         })
         .catch((err) => {
-            console.log(err)
+            console.log(err.message)
+            logerror()
         })
         
     }
@@ -63,6 +81,7 @@ const SignUp = () => {
                 </div>
                 <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-success m-5">Sign In</button>
             </form>
+            <Toaster></Toaster>
 
             <h2 className='p-2 text-xl'>OR</h2>
             <hr className='w-52 m-auto' />
