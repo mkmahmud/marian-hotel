@@ -50,7 +50,7 @@ const Navbar = () => {
                             </ul>
                         </li>
                         <li><a>About</a></li>
-                        <li><a>Service</a></li>
+                        <li><Link to='/rooms'>Rooms</Link></li>
                         <li><Link to='/blog'>Blog</Link></li>
                         <li><a>Contact</a></li>
                         <li><a><button className="btn btn-info">Book Online</button></a></li>

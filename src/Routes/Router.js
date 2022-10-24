@@ -33,6 +33,11 @@ const Router = () => {
           path:'/blog',
           element:<PrivateRoute><Blog></Blog></PrivateRoute>
         },
+        
+        {
+          path:'/rooms',
+          element:<OurRooms></OurRooms>
+        },
         {
           path: '/about',
           element: <div>About</div>
