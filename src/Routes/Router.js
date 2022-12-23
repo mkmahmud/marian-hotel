@@ -6,7 +6,9 @@ import {
   Route
 } from "react-router-dom";
 import Blog from '../Blog/Blog';
+import Content from '../Dashboard/Content/Content';
 import Home from '../Home/Home';
+import Dashboard from '../Layout/Dashboard';
 import Main from '../Layout/Main';
 import OurRooms from '../OurRooms/OurRooms';
 import Login from '../Sign/Login';
@@ -49,6 +51,16 @@ const Router = () => {
         {
           path: '/signUp',
           element: <SignUp></SignUp>
+        }
+      ]
+    },
+    {
+      path:'/dashboard',
+      element: <Dashboard></Dashboard>,
+      children:[
+        {
+          path:'/dashboard',
+          element: <Content></Content>
         }
       ]
     }

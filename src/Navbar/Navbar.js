@@ -52,6 +52,7 @@ const Navbar = () => {
                         <li><a>About</a></li>
                         <li><Link to='/rooms'>Rooms</Link></li>
                         <li><Link to='/blog'>Blog</Link></li>
+                        <li><Link to='/dashboard'>Dashboard</Link></li>
                         <li><a>Contact</a></li>
                         <li><a><button className="btn btn-info">Book Online</button></a></li>
                     </ul>
