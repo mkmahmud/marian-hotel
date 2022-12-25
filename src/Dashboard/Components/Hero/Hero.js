@@ -7,12 +7,8 @@ import { SearchBox } from './HeroStyle';
 
 
 const Hero = () => {
-
-
-
-
     return (
-        <Container sx={{
+        <Box sx={{
             backgroundImage: 'url(https://images.pexels.com/photos/633409/pexels-photo-633409.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)',
             height: '60vh'
         }}>
@@ -40,12 +36,9 @@ const Hero = () => {
                         <input type="text"  placeholder='Search' name="" id="" />
                         <button>Search</button>
                     </SearchBox>
-
-
                 </Stack>
-
             </Box>
-        </Container>
+        </Box>
     );
 };
 
