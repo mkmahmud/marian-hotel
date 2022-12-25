@@ -12,4 +12,19 @@ export const Theme = createTheme({
             main: '#2B4865',
         },
     },
+
+    components:{
+        MuiContainer:{
+            defaultProps:{
+                maxWidth:'xl'
+            }
+        },
+        MuiButton:{
+            styleOverrides:{
+                root:{
+                    textTransform:'uppercase',
+                }
+            }
+        }
+    }
 });
