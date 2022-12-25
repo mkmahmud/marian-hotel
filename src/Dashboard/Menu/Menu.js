@@ -7,7 +7,7 @@ import { Flexbox } from '../Styled/FlexBox/Flexbox';
 
 const Menu = () => {
     return (
-        <Container maxWidth='lg' >
+        <Container   >
             <Flexbox justifyContent='space-between' sx={{
                padding:'1rem'
             }}>
